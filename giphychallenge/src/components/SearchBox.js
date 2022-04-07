@@ -1,10 +1,10 @@
-import React from "react";
-import { extendTheme, ChakraProvider } from '@chakra-ui/react'
+import React, { Component } from "react";
 import { useState, useEffect } from "react";
-
+import ImageList from './ImageList';
 function SearchBox(){
     const [username,setUsername] =useState('');
 
+    
     const sendSomething = (event)=>{ //el event es el username
        event.preventDefault();
        const baseUrl='https://api.giphy.com/v1/gifs/search?' 
@@ -13,11 +13,14 @@ function SearchBox(){
         .then(res => res.json())
         .then(data =>{
            const allElements = data.data;
+           let allUrls = [];
            for( let element of allElements){
                // Acá se debería pushear la data
                //NUEVO CAMBIOS
-               console.log("los ids son : " + JSON.stringify(element))
+               allUrls.push(element.url);
            }
+           console.log("todas las urls: " + JSON.stringify( allUrls));
+           return allUrls;
         })
     }
 
@@ -26,7 +29,7 @@ function SearchBox(){
         setUsername(event.target.value.toLowerCase());
 
     }
-
+    
     return(
         <>
             <form onSubmit={sendSomething}>
@@ -41,6 +44,7 @@ function SearchBox(){
                 </div>
                 <button type="submit">Enviar</button>
             </form>
+          
         </>
     )
 }
