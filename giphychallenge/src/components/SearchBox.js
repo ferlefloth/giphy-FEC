@@ -1,4 +1,5 @@
 import React from "react";
+import { extendTheme, ChakraProvider } from '@chakra-ui/react'
 import { useState, useEffect } from "react";
 
 function SearchBox(){
