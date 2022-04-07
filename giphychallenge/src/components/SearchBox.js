@@ -12,6 +12,7 @@ function SearchBox(){
            const allElements = data.data;
            for( let element of allElements){
                // Acá se debería pushear la data
+               //NUEVO CAMBIOS
                console.log("los ids son : " + element.id)
            }
         })
