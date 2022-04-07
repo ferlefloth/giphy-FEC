@@ -14,7 +14,7 @@ function srcset(image, size, rows = 1, cols = 1) {
   
 function QuiltedImageList(props) {
 
-    console.log('LAS PROPS SON DENTRO DE IMAGE: ' + JSON.stringify(props.data))
+    console.log('LAS PROPS SON DENTRO DE IMAGE: ' + JSON.stringify(props.info))
     return (
       <ImageList
         sx={{ width: 500, height: 450 }}

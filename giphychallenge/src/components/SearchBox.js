@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { useState, useEffect } from "react";
 import ImageList from './ImageList';
-function SearchBox(){
+function SearchBox({info}){
     const [username,setUsername] =useState('');
-
+    
     
     const sendSomething = (event)=>{ //el event es el username
        event.preventDefault();
@@ -20,6 +20,7 @@ function SearchBox(){
                allUrls.push(element.url);
            }
            console.log("todas las urls: " + JSON.stringify( allUrls));
+           info(allUrls)
            return allUrls;
         })
     }
