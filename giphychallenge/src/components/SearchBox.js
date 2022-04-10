@@ -15,11 +15,8 @@ function SearchBox({info}){
            const allElements = data.data;
            let allUrls = [];
            for( let element of allElements){
-               // Acá se debería pushear la data
-               //NUEVO CAMBIOS
-               allUrls.push(element.url);
+               allUrls.push(element.images.downsized_medium);
            }
-           console.log("todas las urls: " + JSON.stringify( allUrls));
            info(allUrls)
            return allUrls;
         })
@@ -28,7 +25,6 @@ function SearchBox({info}){
     const handleChange = (event)=>{
         console.log("el event : " + event.target.value)
         setUsername(event.target.value.toLowerCase());
-
     }
     
     return(
