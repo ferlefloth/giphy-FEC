@@ -8,7 +8,7 @@ function SearchBox({info}){
        event.preventDefault();
        const baseUrl='https://api.giphy.com/v1/gifs/search?' 
        const api_key= 'oy5WoJCYpGcZe3cYmmFvEydLBVSZamUR'
-        fetch(`${baseUrl}api_key=${api_key}&q=${event}&limit=25&offset=0&rating=g&lang=en`)
+        fetch(`${baseUrl}api_key=${api_key}&q=${username}&limit=25&offset=0&lang=en`)
         .then(res => res.json())
         .then(data =>{
            const allElements = data.data;
@@ -20,9 +20,8 @@ function SearchBox({info}){
            return allUrls;
         })
     }
-    const handleChange = (event)=>{
-        console.log("el event : " + event.target.value)
-        setUsername(event.target.value.toLowerCase());
+    const handleChange = (evento)=>{
+        setUsername(evento.target.value.toLowerCase());
     }
     return(
         <>
